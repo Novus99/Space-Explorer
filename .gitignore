@@ -1,9 +1,13 @@
 # Xcode
 build/
 DerivedData/
-*.xcworkspace/xcuserdata/
-*.xcuserdata
 *.xcuserstate
+
+# Ignore ALL Xcode user data (schemes, breakpoints, user-specific stuff)
+xcuserdata/
+xcuserdatad/
+project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
 
 # Swift Package Manager
 .build/
