@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		77E1249C2EEAC8E4007F1E8A /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249B2EEAC8E4007F1E8A /* Factory */; };
+		77E1249E2EEAC8E4007F1E8A /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249D2EEAC8E4007F1E8A /* FactoryKit */; };
+		77E124A02EEAC8E4007F1E8A /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249F2EEAC8E4007F1E8A /* FactoryTesting */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		77E1247E2EE9EB99007F1E8A /* Space Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E1249E2EEAC8E4007F1E8A /* FactoryKit in Frameworks */,
+				77E124A02EEAC8E4007F1E8A /* FactoryTesting in Frameworks */,
+				77E1249C2EEAC8E4007F1E8A /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +74,9 @@
 			);
 			name = "Space Explorer";
 			packageProductDependencies = (
+				77E1249B2EEAC8E4007F1E8A /* Factory */,
+				77E1249D2EEAC8E4007F1E8A /* FactoryKit */,
+				77E1249F2EEAC8E4007F1E8A /* FactoryTesting */,
 			);
 			productName = "Space Explorer";
 			productReference = 77E1247E2EE9EB99007F1E8A /* Space Explorer.app */;
@@ -94,6 +106,9 @@
 			);
 			mainGroup = 77E124752EE9EB99007F1E8A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				77E1249A2EEAC8E4007F1E8A /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 77E1247F2EE9EB99007F1E8A /* Products */;
 			projectDirPath = "";
@@ -324,6 +339,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77E1249A2EEAC8E4007F1E8A /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77E1249B2EEAC8E4007F1E8A /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77E1249A2EEAC8E4007F1E8A /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		77E1249D2EEAC8E4007F1E8A /* FactoryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77E1249A2EEAC8E4007F1E8A /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = FactoryKit;
+		};
+		77E1249F2EEAC8E4007F1E8A /* FactoryTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77E1249A2EEAC8E4007F1E8A /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = FactoryTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 77E124762EE9EB99007F1E8A /* Project object */;
 }
