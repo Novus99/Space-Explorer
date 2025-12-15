@@ -27,3 +27,6 @@ fastlane/test_output
 
 # Misc
 .DS_Store
+
+# Secrets
+Secrets.xcconfig
