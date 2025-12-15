@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+enum ImageOfTheDayMode: CaseIterable, Hashable,
+                        CustomStringConvertible {
+    case imagesList
+    case randomImage
+    
+    var description: String {
+        switch self {
+        case .imagesList: "Latest Images"
+        case .randomImage: "Random Image"
+        }
+    }
+}

@@ -22,8 +22,8 @@ private extension ExplorePlanetsView {
     var resultsView: some View {
         ScrollView{
             VStack(spacing: 16) {
-                ExplorePlanetsPickerView($viewModel.explorePlanetsPickerValue)
-                switch viewModel.explorePlanetsPickerValue {
+                SegmentedPickerView($viewModel.mode)
+                switch viewModel.mode {
                 case .solarSystem:
                     SolarSystemView()
                 case .planetsList:

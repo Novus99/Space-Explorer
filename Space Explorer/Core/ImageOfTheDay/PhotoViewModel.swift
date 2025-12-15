@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+@MainActor
+final class PhotoViewModel: ObservableObject {
+    @Published var mode: ImageOfTheDayMode = .imagesList
+}
