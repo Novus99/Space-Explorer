@@ -31,7 +31,7 @@ final class APODRepositoryImpl: APODRepository {
         let decoder = JSONDecoder()
         let item = try decoder.decode(APODItem.self, from: data)
 
-            return item
+        return item
     }
     
     func fetchLast30APOD() async throws -> [APODItem] {
@@ -50,6 +50,5 @@ final class APODRepositoryImpl: APODRepository {
         
         return items
     }
-    
     
 }

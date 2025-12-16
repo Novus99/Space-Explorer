@@ -33,6 +33,8 @@ private extension ExplorePlanetsView {
             .padding(.horizontal)
             .padding(.vertical, 8)
         }
+        .infinityFrame()
+        .background(Color.appTheme.viewBackground)
     }
     
 

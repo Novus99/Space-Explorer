@@ -13,5 +13,11 @@ extension Container {
         self {
             MainActor.assumeIsolated { DateGeneratorImpl() } }.singleton
         }
+    
+    var apodRepository: Factory<APODRepository> {
+        self {
+            MainActor.assumeIsolated { APODRepositoryImpl() } }.singleton
+        }
+    
     }
 
