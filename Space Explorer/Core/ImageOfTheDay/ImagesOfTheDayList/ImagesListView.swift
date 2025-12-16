@@ -9,6 +9,14 @@ import SwiftUI
 
 struct ImagesListView: View {
     var body: some View{
-        Text("Image List View")
+        VStack{
+            Text("Image List View")
+        }
+        
     }
+}
+
+
+#Preview {
+    ImagesListView()
 }

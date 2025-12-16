@@ -7,10 +7,17 @@
 import SwiftUI
 
 struct PhotoView: View {
-    @StateObject private var viewModel =
-    PhotoViewModel()
+    @StateObject private var viewModel = PhotoViewModel()
+    
     var body: some View {
-        resultsView
+        VStack{
+            resultsView
+        }
+        .task {
+            if viewModel.randomApod == nil {
+                await viewModel.fetchRandomImage()
+            }
+        }
     }
 }
 
@@ -24,11 +31,25 @@ private extension PhotoView {
                 case .imagesList:
                     ImagesListView()
                 case .randomImage:
-                    RandomImageView()
+                    randomImageView
                 }
             }
             .padding(.horizontal)
             .padding(.vertical, 8)
         }
+        .infinityFrame()
+        .background(Color.appTheme.viewBackground)
     }
+    
+    @ViewBuilder
+    var randomImageView: some View {
+        RandomImageView(
+            apod: viewModel.randomApod,
+            onReload: {
+                Task {
+                    await viewModel.fetchRandomImage()
+                }
+            })
+    }
+    
 }

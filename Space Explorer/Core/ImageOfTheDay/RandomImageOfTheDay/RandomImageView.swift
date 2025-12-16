@@ -9,25 +9,41 @@ import SwiftUI
 
 struct RandomImageView: View{
     
-    var testAPI = APODRepositoryImpl()
+    let apod: APODViewData?
+    
+    let onReload: () -> Void
     
     var body: some View {
-        Text("Random Image View")
-        getRandomImageButton
+        VStack(spacing: 16) {
+            apodResults
+            getRandomImageButton
+        }
     }
 }
 
 private extension RandomImageView {
     var getRandomImageButton: some View {
-            Button {
-                Task {
-                    let result = try? await testAPI.fetchRandomAPOD()
-                    print(result as Any)
-                }
-            } label: {
-                Text("Get random image")
-                    .primaryButton()
-            }
-            .buttonStyle(PressableButtonStyle())
+        Button {
+            onReload()
+        } label: {
+            Text("Get random image")
+                .primaryButton()
         }
-}
+        .buttonStyle(PressableButtonStyle())
+    }
+    
+    var apodResults: some View { // TODO: To do poprawki
+            Group {
+                if let apod {
+                    APODResultsView(apod: apod)
+                } else {
+                    // placeholder, gdy jeszcze nic nie wczytano
+                    Text("Tap the button to load a random image")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
+            }
+        }
+    }
+
