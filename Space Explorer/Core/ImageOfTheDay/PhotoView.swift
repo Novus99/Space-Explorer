@@ -15,6 +15,7 @@ struct PhotoView: View {
         }
         .task {
             if viewModel.randomApod == nil {
+                await viewModel.fetchLast30Images()
                 await viewModel.fetchRandomImage()
             }
         }
@@ -29,7 +30,7 @@ private extension PhotoView {
                 SegmentedPickerView($viewModel.mode)
                 switch viewModel.mode {
                 case .imagesList:
-                    ImagesListView()
+                    imagesListView
                 case .randomImage:
                     randomImageView
                 }
@@ -50,6 +51,12 @@ private extension PhotoView {
                     await viewModel.fetchRandomImage()
                 }
             })
+    }
+    
+    var imagesListView: some View {
+        ImagesListView(
+            apod: viewModel.last30Apods
+        )
     }
     
 }

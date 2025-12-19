@@ -8,11 +8,39 @@
 import SwiftUI
 
 struct CardView: View {
+    let date: String
+    let urlString: String? // TODO: Zastanowic sie czy to powinno być optionalem
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            cardImage
+            datePlaceholder
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(Color(.systemGray5))       // <- tło karty
+        .cornerRadius(16)                      // <- zaokrąglenia
+        .shadow(radius: 4)
+        // TODO: Tu porobić z app properties te wartości
+    }
+}
+
+private extension CardView {
+    
+    var cardImage: some View {
+        APODThumbnailImageView(urlString: urlString, size: 60)
+    }
+    
+    
+    var datePlaceholder: some View {
+        Text("Date: \(date)")
+            
     }
 }
 
 #Preview {
-    CardView()
+    HStack{
+        CardView(date: "2025.12.14", urlString: "https://apod.nasa.gov/apod/image/9909/m83_aao_big.jpg")
+        CardView(date: "2025.12.13", urlString: "https://apod.nasa.gov/apod/image/9908/augeclipse_cagas.jpg")
+    }
 }

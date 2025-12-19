@@ -34,9 +34,9 @@ struct DateGeneratorImpl: DateGenerator {
         Self.formatter.string(from: Date())
     }
     
-    func todayMinus30DaysDateString() -> String {
+    func todayMinus29DaysDateString() -> String {
         let today = Date()
-        let date = Self.calendar.date(byAdding: .day, value: -30, to: today) ?? today
+        let date = Self.calendar.date(byAdding: .day, value: -29, to: today) ?? today
         return Self.formatter.string(from: date)
     }
 }

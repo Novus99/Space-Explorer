@@ -35,7 +35,7 @@ final class APODRepositoryImpl: APODRepository {
     }
     
     func fetchLast30APOD() async throws -> [APODItem] {
-        let startDate = dateGenerator.todayMinus30DaysDateString()
+        let startDate = dateGenerator.todayMinus29DaysDateString()
         let endDate = dateGenerator.todayDateString()
         
         let url = APODEndpoint.last30APOD(start_date: startDate, end_date: endDate, apiKey: APIKeys.nasa).url

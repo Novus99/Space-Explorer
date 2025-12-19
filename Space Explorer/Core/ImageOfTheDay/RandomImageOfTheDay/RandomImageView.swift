@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RandomImageView: View{
     
-    let apod: APODViewData?
+    let apod: APODViewData? 
     
     let onReload: () -> Void
     

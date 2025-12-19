@@ -8,15 +8,37 @@
 import SwiftUI
 
 struct ImagesListView: View {
+    
+    let apod: [APODViewData]?
+    
+    private let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View{
         VStack{
-            Text("Image List View")
+            apodGridView
         }
         
     }
 }
 
+private extension ImagesListView {
+    
+    var apodGridView: some View {
+        LazyVGrid(columns: columns) {
+            ForEach(Array((apod ?? []).reversed())) { item in
+                CardView(
+                    date: item.date,
+                    urlString: item.url)
+            }
+        }
+    }
+    
+
+}
 
 #Preview {
-    ImagesListView()
+    //ImagesListView()
 }
