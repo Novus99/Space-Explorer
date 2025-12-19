@@ -8,5 +8,5 @@
 protocol DateGenerator {
     func randomDateString() -> String
     func todayDateString() -> String
-    func todayMinus30DaysDateString() -> String
+    func todayMinus29DaysDateString() -> String
 }

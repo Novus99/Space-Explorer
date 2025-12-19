@@ -34,7 +34,7 @@ private extension APODResultsView {
     
     
     var image: some View {
-        APODLargeImageView(urlString: apod.url.absoluteString) // TODO: To zmienić na string już w modelu
+        APODLargeImageView(urlString: apod.url) // TODO: To zmienić na string już w modelu
     }
     
     var description: some View {
@@ -48,6 +48,11 @@ private extension APODResultsView {
 
 #Preview {
     APODResultsView(
-        apod: APODViewData(title: "M83: A Barred Spiral Galaxy", explaination: "M83 is a bright spiral galaxy that can be found with a small telescope in the constellation of Hydra.  It takes light about 15 million years to reach us from M83.  M83 is quite a typical spiral - much like our own Milky Way Galaxy. Spiral galaxies contains many billions of stars, the youngest of which inhabit the spiral arms and glow strongly in blue light.  Dark dust lanes are mixed in with the stars and help define M83's marked spiral structure.  The space between the spiral arms is also filled with stars - but stars that are typically more dim and red. The stars and gas in spiral arms seem to be responding to much more mass than is visible here, implying that galaxies are predominantly composed of some sort of dark matter. Finding the nature of this dark matter remains one of the great challenges of modern science.", url: URL(string: "https://apod.nasa.gov/apod/image/9909/m83_aao.jpg")!, date: "1999-09-26")
+        apod: APODViewData(
+            id: "1999-09-26",
+            title: "M83: A Barred Spiral Galaxy",
+            explaination: "M83 is a bright spiral galaxy that can be found with a small telescope in the constellation of Hydra.  It takes light about 15 million years to reach us from M83.  M83 is quite a typical spiral - much like our own Milky Way Galaxy. Spiral galaxies contains many billions of stars, the youngest of which inhabit the spiral arms and glow strongly in blue light.  Dark dust lanes are mixed in with the stars and help define M83's marked spiral structure.  The space between the spiral arms is also filled with stars - but stars that are typically more dim and red. The stars and gas in spiral arms seem to be responding to much more mass than is visible here, implying that galaxies are predominantly composed of some sort of dark matter. Finding the nature of this dark matter remains one of the great challenges of modern science.",
+            url: "https://apod.nasa.gov/apod/image/9909/m83_aao.jpg",
+            date: "1999-09-26")
     )
 }

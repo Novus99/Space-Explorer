@@ -14,6 +14,7 @@ final class PhotoViewModel: ObservableObject {
     
     @Published var mode: ImageOfTheDayMode = .imagesList
     @Published var randomApod: APODViewData?
+    @Published var last30Apods: [APODViewData]?
     
     @MainActor
     func fetchRandomImage() async {
@@ -26,8 +27,25 @@ final class PhotoViewModel: ObservableObject {
         }
     }
     
+    @MainActor
+    func fetchLast30Images() async {
+        do {
+            let items = try await apodRepository.fetchLast30APOD()
+            last30Apods = items.map(mapToUIModel)
+            print(last30Apods!)
+        }
+        catch {
+            print("Error while fetching last 30 astronomy image's: \(error)")
+        }
+    }
+    
     private func mapToUIModel(_ item: APODItem) -> APODViewData {
-        APODViewData(title: item.title, explaination: item.explanation, url: item.url, date: item.date)
+        APODViewData(
+            id: item.id,
+            title: item.title,
+            explaination: item.explanation,
+            url: item.url?.absoluteString,
+            date: item.date)
     }
     
 }

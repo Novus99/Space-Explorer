@@ -13,7 +13,7 @@ struct APODItem: Identifiable, Codable {
     let date: String
     let title: String
     let explanation: String
-    let url: URL
+    let url: URL?
     let hdurl: URL?
     let mediaType: MediaType
     let serviceVersion: String

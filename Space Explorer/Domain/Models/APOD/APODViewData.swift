@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct APODViewData {
+struct APODViewData: Identifiable {
+    let id: String
     let title: String
     let explaination: String
-    let url: URL
+    let url: String?
     let date: String
 }
