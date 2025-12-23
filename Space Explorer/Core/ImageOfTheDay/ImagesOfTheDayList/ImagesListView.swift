@@ -29,16 +29,22 @@ private extension ImagesListView {
     var apodGridView: some View {
         LazyVGrid(columns: columns) {
             ForEach(Array((apod ?? []).reversed())) { item in
-                CardView(
-                    date: item.date,
-                    urlString: item.url)
+                NavigationLink(destination: ImageDetailsView(apod: item)) {
+                    CardView(
+                        date: item.date,
+                        urlString: item.url)
+                }
+                
             }
         }
+        
+        
     }
     
-
+    
 }
 
 #Preview {
     //ImagesListView()
 }
+
