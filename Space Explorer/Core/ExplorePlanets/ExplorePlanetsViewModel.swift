@@ -9,5 +9,5 @@ import Foundation
 
 @MainActor
 final class ExplorePlanetsViewModel: ObservableObject {
-    @Published var mode: ExplorePlanetsMode = .solarSystem
+    @Published var mode: ExplorePlanetsMode = .planetList
 }

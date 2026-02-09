@@ -1,0 +1,147 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "app_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Space Explorer"
+          }
+        }
+      }
+    },
+    "Button Regular Shadow" : {
+
+    },
+    "Calculate" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Continue" : {
+
+    },
+    "Get random image" : {
+
+    },
+    "Get Started" : {
+
+    },
+    "Hello, this is test view!" : {
+
+    },
+    "photo_of_the_day.date_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date: %@"
+          }
+        }
+      }
+    },
+    "picker_view.latest_images" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Latest Images"
+          }
+        }
+      }
+    },
+    "picker_view.planets" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Planets"
+          }
+        }
+      }
+    },
+    "picker_view.random_image" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Random Image"
+          }
+        }
+      }
+    },
+    "picker_view.solar_system" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solar System"
+          }
+        }
+      }
+    },
+    "Planet Info View" : {
+
+    },
+    "Settings View" : {
+
+    },
+    "Sign Out" : {
+
+    },
+    "Solar system view" : {
+
+    },
+    "Subtitle" : {
+
+    },
+    "tab.explore_planets" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explore planets"
+          }
+        }
+      }
+    },
+    "tab.photo_of_the_day" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Photo of the day"
+          }
+        }
+      }
+    },
+    "tab.settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "Tap the button to load a random image" : {
+
+    },
+    "Title" : {
+
+    }
+  },
+  "version" : "1.0"
+}

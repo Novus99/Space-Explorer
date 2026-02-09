@@ -26,7 +26,7 @@ private extension HomeTabView {
         }
         .tabItem {
             Image(systemName: "globe")
-            Text("Explore planets")
+            Text("tab.explore_planets")
         }
     }
 
@@ -38,7 +38,7 @@ private extension HomeTabView {
         }
         .tabItem {
             Image(systemName: "camera")
-            Text("Photo of the day")
+            Text("tab.photo_of_the_day")
         }
     }
 
@@ -46,7 +46,7 @@ private extension HomeTabView {
         SettingsView()
             .tabItem {
                 Image(systemName: "gearshape")
-                Text("Settings")
+                Text("tab.settings")
             }
     }
 

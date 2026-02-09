@@ -42,7 +42,10 @@ private extension APODResultsView {
     }
     
     var date: some View {
-        Text("Date: \(apod.date)") // TODO: To wyciągnąć do innego pliku (Date:)
+        Text(String(
+            format: NSLocalizedString("photo_of_the_day.date_placeholder", comment: ""),
+            apod.date
+            ))
     }
 }
 
