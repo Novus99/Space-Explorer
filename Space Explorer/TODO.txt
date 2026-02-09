@@ -1,0 +1,7 @@
+1. Prefetch danych
+2. Cache'owanie obrazków
+3. Uniwersalna obsługa błędu pobierania
+4. Dodać listę planet z szczegółami
+5. Usunąć TODO'sy
+6. Zmienić kolejność - układ słoneczny w drugiej zakładce lista planet w pierwszej
+

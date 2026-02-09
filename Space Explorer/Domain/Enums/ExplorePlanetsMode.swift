@@ -8,13 +8,14 @@
 import Foundation
 
 enum ExplorePlanetsMode: CaseIterable, Hashable, CustomStringConvertible {
+    case planetList
     case solarSystem
-    case planetsList
+    
 
     var description: String {
         switch self {
-        case .solarSystem: "Solar System"
-        case .planetsList: "Planets"
+        case .planetList: String(localized: "picker_view.planets")
+        case .solarSystem: String(localized: "picker_view.solar_system")
         }
     }
 }

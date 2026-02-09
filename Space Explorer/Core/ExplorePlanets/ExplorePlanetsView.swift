@@ -24,10 +24,10 @@ private extension ExplorePlanetsView {
             VStack(spacing: 16) {
                 SegmentedPickerView($viewModel.mode)
                 switch viewModel.mode {
+                case .planetList:
+                    PlanetListView()
                 case .solarSystem:
                     SolarSystemView()
-                case .planetsList:
-                    PlanetListView()
                 }
             }
             .padding(.horizontal)

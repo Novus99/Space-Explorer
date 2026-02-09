@@ -19,5 +19,11 @@ extension Container {
             MainActor.assumeIsolated { APODRepositoryImpl() } }.singleton
         }
     
+    var planetRepository: Factory<PlanetRepository> {
+        self {
+            MainActor.assumeIsolated { PlanetRepositoryImpl() } } .singleton
+        }
+    
     }
+    
 

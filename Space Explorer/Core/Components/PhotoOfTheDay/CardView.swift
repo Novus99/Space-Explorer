@@ -18,8 +18,8 @@ struct CardView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color(.systemGray5))       // <- tło karty
-        .cornerRadius(16)                      // <- zaokrąglenia
+        .background(Color(.systemGray5))
+        .cornerRadius(16)
         .shadow(radius: 4)
         // TODO: Tu porobić z app properties te wartości
     }
@@ -33,8 +33,11 @@ private extension CardView {
     
     
     var datePlaceholder: some View {
-        Text("Date: \(date)")
-            
+        Text(
+                String(
+                    format: NSLocalizedString("photo_of_the_day.date_placeholder", comment: ""),
+                    date
+                    ))
     }
 }
 

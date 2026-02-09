@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct PlanetListView: View {
+    @StateObject private var viewModel = PlanetListViewModel()
+    
     var body: some View {
-        VStack{
-            Text("Planet List View")
-            goToPreviewButton
+        VStack(spacing: 0){
+            planetList
+            Spacer()
         }
-        
+        .task {
+            if viewModel.planets.isEmpty {
+                viewModel.fetchPlanets()
+            }
+        }
     }
 }
 
 private extension PlanetListView {
     
+    var planetList: some View {
+        LazyVStack(alignment: .leading, spacing: 12) {
+            ForEach(viewModel.planets) { planet in
+                PlanetRowView(planet: planet)
+            }
+        }
+    }
     
     var goToPreviewButton: some View {
         NavigationLink {

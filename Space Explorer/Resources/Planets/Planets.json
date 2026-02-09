@@ -1,0 +1,110 @@
+[
+    {
+      "id": "sun",
+      "order": 0,
+      "namePL": "Słońce",
+      "nameEN": "Sun",
+      "descriptionPL": "Gwiazda znajdująca się w centrum Układu Słonecznego, dostarczająca energię wszystkim planetom.",
+      "descriptionEN": "The star at the center of the Solar System, providing energy to all planets.",
+      "thumbnailAsset": "sun_thumb",
+      "radius": 696340,
+      "perihelion": 0,
+      "aphelion": 0
+    },
+    {
+      "id": "mercury",
+      "order": 1,
+      "namePL": "Merkury",
+      "nameEN": "Mercury",
+      "descriptionPL": "Najmniejsza i najbliższa Słońcu planeta Układu Słonecznego.",
+      "descriptionEN": "The smallest and closest planet to the Sun.",
+      "thumbnailAsset": "mercury_thumb",
+      "radius": 2439,
+      "perihelion": 46000000,
+      "aphelion": 69820000
+    },
+    {
+      "id": "venus",
+      "order": 2,
+      "namePL": "Wenus",
+      "nameEN": "Venus",
+      "descriptionPL": "Druga planeta od Słońca, znana z ekstremalnie wysokich temperatur.",
+      "descriptionEN": "The second planet from the Sun, known for its extreme temperatures.",
+      "thumbnailAsset": "venus_thumb",
+      "radius": 6051,
+      "perihelion": 107480000,
+      "aphelion": 108940000
+    },
+    {
+      "id": "earth",
+      "order": 3,
+      "namePL": "Ziemia",
+      "nameEN": "Earth",
+      "descriptionPL": "Jedyna znana planeta z życiem, trzecia od Słońca.",
+      "descriptionEN": "The only known planet with life, third from the Sun.",
+      "thumbnailAsset": "earth_thumb",
+      "radius": 6371,
+      "perihelion": 147100000,
+      "aphelion": 152100000
+    },
+    {
+      "id": "mars",
+      "order": 4,
+      "namePL": "Mars",
+      "nameEN": "Mars",
+      "descriptionPL": "Czerwona Planeta, potencjalny cel przyszłych misji załogowych.",
+      "descriptionEN": "The Red Planet, a potential target for future human missions.",
+      "thumbnailAsset": "mars_thumb",
+      "radius": 3389,
+      "perihelion": 206700000,
+      "aphelion": 249200000
+    },
+    {
+      "id": "jupiter",
+      "order": 5,
+      "namePL": "Jowisz",
+      "nameEN": "Jupiter",
+      "descriptionPL": "Największa planeta Układu Słonecznego, gazowy olbrzym.",
+      "descriptionEN": "The largest planet in the Solar System, a gas giant.",
+      "thumbnailAsset": "jupiter_thumb",
+      "radius": 69911,
+      "perihelion": 740500000,
+      "aphelion": 816400000
+    },
+    {
+      "id": "saturn",
+      "order": 6,
+      "namePL": "Saturn",
+      "nameEN": "Saturn",
+      "descriptionPL": "Gazowy olbrzym słynący z widowiskowego systemu pierścieni.",
+      "descriptionEN": "A gas giant famous for its spectacular ring system.",
+      "thumbnailAsset": "saturn_thumb",
+      "radius": 58232,
+      "perihelion": 1352500000,
+      "aphelion": 1513000000
+    },
+    {
+      "id": "uranus",
+      "order": 7,
+      "namePL": "Uran",
+      "nameEN": "Uranus",
+      "descriptionPL": "Planeta lodowa obracająca się niemal na boku.",
+      "descriptionEN": "An ice giant that rotates almost on its side.",
+      "thumbnailAsset": "uranus_thumb",
+      "radius": 25362,
+      "perihelion": 2735000000,
+      "aphelion": 3004000000
+    },
+    {
+      "id": "neptune",
+      "order": 8,
+      "namePL": "Neptun",
+      "nameEN": "Neptune",
+      "descriptionPL": "Najdalsza planeta Układu Słonecznego, znana z silnych wiatrów.",
+      "descriptionEN": "The farthest planet from the Sun, known for its strong winds.",
+      "thumbnailAsset": "neptune_thumb",
+      "radius": 24622,
+      "perihelion": 4444000000,
+      "aphelion": 4537000000
+    }
+]

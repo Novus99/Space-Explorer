@@ -13,7 +13,7 @@ struct AppToolbar: ToolbarContent {
             HStack(spacing: 5) {
                 Image(systemName: "globe")
                     .foregroundStyle(Color.appTheme.accent)
-                Text("Space Explorer") // TODO: podpiąć ze store
+                Text("app_name")
                     .fontWeight(.semibold)
             }
         }

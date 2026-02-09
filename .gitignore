@@ -30,3 +30,6 @@ fastlane/test_output
 
 # Secrets
 Secrets.xcconfig
+
+# TODO
+TODO.txt
