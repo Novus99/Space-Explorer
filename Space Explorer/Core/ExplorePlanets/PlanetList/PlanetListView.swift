@@ -15,11 +15,6 @@ struct PlanetListView: View {
             planetList
             Spacer()
         }
-        .task {
-            if viewModel.planets.isEmpty {
-                viewModel.fetchPlanets()
-            }
-        }
     }
 }
 
@@ -28,18 +23,11 @@ private extension PlanetListView {
     var planetList: some View {
         LazyVStack(alignment: .leading, spacing: 12) {
             ForEach(viewModel.planets) { planet in
-                PlanetRowView(planet: planet)
+                NavigationLink(destination: PlanetDetailsView(planet: planet)) {
+                    PlanetRowView(planet: planet)
+                }
             }
         }
     }
-    
-    var goToPreviewButton: some View {
-        NavigationLink {
-            PlanetInfoView()          // << tutaj przechodzisz
-        } label: {
-            Text("Get Started")
-                .primaryButton()      // Twój styl tekstu/przycisku
-        }
-        .buttonStyle(PressableButtonStyle())  // „wciśnięcie” jak w Twoim .press
-    }
 }
+

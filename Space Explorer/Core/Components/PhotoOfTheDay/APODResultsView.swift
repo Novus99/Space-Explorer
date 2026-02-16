@@ -20,7 +20,7 @@ struct APODResultsView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(12)
-        .background(Color.appTheme.cellBackground)
+        .background(Color(.systemGray5))
         .cornerRadius(.cell)
     }
 }

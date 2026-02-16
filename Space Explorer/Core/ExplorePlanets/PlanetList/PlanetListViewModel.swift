@@ -14,18 +14,17 @@ final class PlanetListViewModel: ObservableObject {
     
     @Published var planets: [PlanetViewData] = []
     
-    @MainActor
-    func fetchPlanets() {
-        let items = planetRepository.fetchPlanets()
-        planets=items.map(mapToUIModel)
-        print(planets)
-        
+    
+    init() {
+            let items = planetRepository.fetchPlanets()
+            planets = items.map(mapToUIModel)
     }
     
     private func mapToUIModel(_ item: PlanetItem) -> PlanetViewData {
         PlanetViewData(
             id: item.id,
             order: item.order,
+            visual: PlanetVisual(from: item.visual),
             name: item.nameEN,
             description: item.descriptionEN,
             thumbnailAsset: item.thumbnailAsset,

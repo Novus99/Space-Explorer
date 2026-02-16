@@ -1,172 +1,194 @@
 import SwiftUI
 import RealityKit
-import ARKit
 import Combine
+import UIKit
 
-enum PlanetKind {
-    case earth
-    case saturn
+enum PlanetVisual: Equatable {
+    case standard
+    case ringed
+    
+    init(from string: String) {
+            switch string.lowercased() {
+            case "ringed":
+                self = .ringed
+            default:
+                self = .standard
+            }
+        }
 }
 
 struct PlanetRealityView: UIViewRepresentable {
-    let kind: PlanetKind
+    let planetId: String
+    var visual: PlanetVisual = .standard
+
+    var baseRadius: Float = 0.8
+    var distance: Float = 1.2
+    var rotationSpeed: Float = .pi / 20
+
+    var planetDiameterFraction: CGFloat? = 0.75
+    var scale: Float? = nil
 
     func makeUIView(context: Context) -> ARView {
-        let arView = ARView(frame: .zero)
+        let arView = ARView(
+            frame: .zero,
+            cameraMode: .nonAR,
+            automaticallyConfigureSession: false
+        )
 
-        // Konfiguracja AR (świat 3D)
-        let config = ARWorldTrackingConfiguration()
-        arView.session.run(config)
+        arView.environment.background = .color(.clear)
+        arView.isOpaque = false
+        arView.backgroundColor = .clear
 
-        // ROOT – wspólny dla wszystkich planet (obracamy jego)
-        let planetRoot = Entity()
-        planetRoot.position = [0, 0, -1.2]
-
-        switch kind {
-        case .earth:
-            buildEarth(into: planetRoot)
-        case .saturn:
-            buildSaturn(into: planetRoot)
-        }
-
-        let anchor = AnchorEntity(world: .zero)
-        anchor.addChild(planetRoot)
+        let anchor = AnchorEntity()
+        let root = Entity()
+        root.position = [0, 0, -distance]
+        anchor.addChild(root)
         arView.scene.addAnchor(anchor)
 
-        // Przekazujemy root do koordynatora
-        context.coordinator.modelEntity = planetRoot
+        context.coordinator.root = root
+        context.coordinator.rotationSpeed = rotationSpeed
+        context.coordinator.build(planetId: planetId, visual: visual, radius: baseRadius)
 
-        // Gest obracania palcem
+        applySizing(on: arView, root: root)
+
+        context.coordinator.startAutoRotate(on: arView)
+
         let pan = UIPanGestureRecognizer(
             target: context.coordinator,
             action: #selector(Coordinator.handlePan(_:))
         )
         arView.addGestureRecognizer(pan)
 
-        // Auto-obrót
-        context.coordinator.startAutoRotate(on: arView)
-
         return arView
     }
 
-    func updateUIView(_ uiView: ARView, context: Context) {}
+    func updateUIView(_ uiView: ARView, context: Context) {
+        context.coordinator.rotationSpeed = rotationSpeed
 
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
+        if let root = context.coordinator.root {
+            root.position = [0, 0, -distance]
+            context.coordinator.rebuildIfNeeded(planetId: planetId, visual: visual, radius: baseRadius)
+            applySizing(on: uiView, root: root)
+        }
     }
 
-    // MARK: - Budowanie planet
-
-    private func buildEarth(into root: Entity) {
-        // kula Ziemi
-        let mesh = MeshResource.generateSphere(radius: 0.8)
-
-        var material = UnlitMaterial()
-        if let image = UIImage(named: "earth_diffuse"),
-           let cgImage = image.cgImage {
-            let texture = try! TextureResource.generate(
-                from: cgImage,
-                options: .init(semantic: .color)
-            )
-            material.color = .init(texture: .init(texture))
-        } else {
-            material.color = .init(tint: .gray)
-        }
-
-        let earthEntity = ModelEntity(mesh: mesh, materials: [material])
-        root.addChild(earthEntity)
+    static func dismantleUIView(_ uiView: ARView, coordinator: Coordinator) {
+        coordinator.updateCancellable?.cancel()
+        coordinator.updateCancellable = nil
     }
 
-    private func buildSaturn(into root: Entity) {
-        // --- KULA SATURNA ---
-        let planetMesh = MeshResource.generateSphere(radius: 0.8)
-        var planetMat = UnlitMaterial()
+    func makeCoordinator() -> Coordinator { Coordinator() }
 
-        if let image = UIImage(named: "saturn_diffuse"),
-           let cgImage = image.cgImage {
-            let texture = try! TextureResource.generate(
-                from: cgImage,
-                options: .init(semantic: .color)
-            )
-            planetMat.color = .init(texture: .init(texture))
-        } else {
-            planetMat.color = .init(tint: .gray)
+    private func applySizing(on arView: ARView, root: Entity) {
+        if let scale {
+            root.scale = [scale, scale, scale]
+            return
         }
 
-        let saturnSphere = ModelEntity(mesh: planetMesh, materials: [planetMat])
-
-        // --- PIERŚCIEŃ ---
-        let ringMesh = MeshResource.generatePlane(width: 2.4, depth: 2.4)
-        var ringMat = UnlitMaterial()
-
-        if let ringImg = UIImage(named: "saturn_ring"),
-           let ringCg = ringImg.cgImage {
-            let ringTex = try! TextureResource.generate(
-                from: ringCg,
-                options: .init(semantic: .color)
-            )
-            ringMat.color = .init(texture: .init(ringTex))
-            ringMat.opacityThreshold = 0.1        // dziura z alpha w PNG
-            ringMat.faceCulling = .none           // widoczny z obu stron
-        } else {
-            ringMat.color = .init(tint: UIColor.white.withAlphaComponent(0.3))
+        guard let frac = planetDiameterFraction else {
+            root.scale = [1, 1, 1]
+            return
         }
 
-        let ringEntity = ModelEntity(mesh: ringMesh, materials: [ringMat])
-
-        // Plane jest w XZ, więc delikatny tilt (bardziej poziomo, ok. 15°)
-        ringEntity.orientation = simd_quatf(angle: .pi / 12, axis: [1, 0, 0])
-        ringEntity.position = [0, 0, 0]
-
-        // --- SKŁADAMY SATURNA ---
-        root.addChild(saturnSphere)
-        root.addChild(ringEntity)
+        let clamped = max(0.25, min(frac, 0.95))
+        let s = Float(clamped) * 1.35
+        root.scale = [s, s, s]
     }
 
-    // MARK: - Koordynator
-
-    class Coordinator: NSObject {
-        weak var modelEntity: Entity?
+    final class Coordinator: NSObject {
+        weak var root: Entity?
         var updateCancellable: Cancellable?
-        var rotationSpeed: Float = .pi / 20  // rad/s (im mniejsze, tym wolniej)
+        var rotationSpeed: Float = .pi / 20
 
-        // Auto-obrót – subskrypcja update’ów sceny
+        private var currentPlanetId: String = ""
+        private var currentVisual: PlanetVisual = .standard
+        private var currentRadius: Float = 0.8
+
+        func rebuildIfNeeded(planetId: String, visual: PlanetVisual, radius: Float) {
+            guard planetId != currentPlanetId || visual != currentVisual || radius != currentRadius else { return }
+            build(planetId: planetId, visual: visual, radius: radius)
+        }
+
+        func build(planetId: String, visual: PlanetVisual, radius: Float) {
+            guard let root else { return }
+
+            root.children.removeAll()
+
+            let sphere = makeSphere(textureName: "\(planetId)_diffuse", radius: radius)
+            root.addChild(sphere)
+
+            if visual == .ringed {
+                let ring = makeRing(textureName: "\(planetId)_ring")
+                root.addChild(ring)
+            }
+
+            currentPlanetId = planetId
+            currentVisual = visual
+            currentRadius = radius
+        }
+
         func startAutoRotate(on arView: ARView) {
             updateCancellable = arView.scene.subscribe(to: SceneEvents.Update.self) { [weak self] event in
-                guard let self = self,
-                      let entity = self.modelEntity else { return }
+                guard let self, let entity = self.root else { return }
 
                 let angle = self.rotationSpeed * Float(event.deltaTime)
-                let deltaRotation = simd_quatf(angle: angle, axis: [0, 1, 0])
+                let delta = simd_quatf(angle: angle, axis: [0, 1, 0])
 
-                var transform = entity.transform
-                transform.rotation = deltaRotation * transform.rotation
-                entity.transform = transform
+                var t = entity.transform
+                t.rotation = delta * t.rotation
+                entity.transform = t
             }
         }
 
-        // Obrót palcem
         @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
-            guard
-                let view = gesture.view as? ARView,
-                let entity = modelEntity
-            else { return }
+            guard let view = gesture.view as? ARView, let entity = root else { return }
 
             let translation = gesture.translation(in: view)
             let sensitivity: Float = 0.005
 
-            let deltaX = Float(translation.x) * sensitivity
-            let deltaY = Float(translation.y) * sensitivity
+            let dx = Float(translation.x) * sensitivity
+            let dy = Float(translation.y) * sensitivity
 
             gesture.setTranslation(.zero, in: view)
 
-            var transform = entity.transform
+            var t = entity.transform
+            let yaw = simd_quatf(angle: -dx, axis: [0, 1, 0])
+            let pitch = simd_quatf(angle: -dy, axis: [1, 0, 0])
 
-            let yaw = simd_quatf(angle: -deltaX, axis: [0, 1, 0])
-            let pitch = simd_quatf(angle: -deltaY, axis: [1, 0, 0])
+            t.rotation = yaw * pitch * t.rotation
+            entity.transform = t
+        }
 
-            transform.rotation = yaw * pitch * transform.rotation
-            entity.transform = transform
+        private func makeSphere(textureName: String, radius: Float) -> ModelEntity {
+            let mesh = MeshResource.generateSphere(radius: radius)
+            var mat = UnlitMaterial()
+
+            if let cg = UIImage(named: textureName)?.cgImage {
+                let tex = try! TextureResource.generate(from: cg, options: .init(semantic: .color))
+                mat.color = .init(texture: .init(tex))
+            } else {
+                mat.color = .init(tint: .gray)
+            }
+
+            return ModelEntity(mesh: mesh, materials: [mat])
+        }
+
+        private func makeRing(textureName: String) -> ModelEntity {
+            let mesh = MeshResource.generatePlane(width: 2.4, depth: 2.4)
+            var mat = UnlitMaterial()
+
+            if let cg = UIImage(named: textureName)?.cgImage {
+                let tex = try! TextureResource.generate(from: cg, options: .init(semantic: .color))
+                mat.color = .init(texture: .init(tex))
+                mat.opacityThreshold = 0.1
+                mat.faceCulling = .none
+            } else {
+                mat.color = .init(tint: UIColor.white.withAlphaComponent(0.3))
+            }
+
+            let ring = ModelEntity(mesh: mesh, materials: [mat])
+            ring.orientation = simd_quatf(angle: .pi / 12, axis: [1, 0, 0])
+            return ring
         }
     }
 }
