@@ -10,6 +10,7 @@ import Foundation
 struct PlanetViewData: Identifiable {
     let id: String
     let order: Int
+    let visual: PlanetVisual
     let name: String
     let description: String
     let thumbnailAsset: String

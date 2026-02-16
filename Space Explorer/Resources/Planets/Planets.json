@@ -1,6 +1,7 @@
 [
     {
       "id": "sun",
+      "visual": "standard",
       "order": 0,
       "namePL": "Słońce",
       "nameEN": "Sun",
@@ -13,6 +14,7 @@
     },
     {
       "id": "mercury",
+      "visual": "standard",
       "order": 1,
       "namePL": "Merkury",
       "nameEN": "Mercury",
@@ -25,6 +27,7 @@
     },
     {
       "id": "venus",
+      "visual": "standard",
       "order": 2,
       "namePL": "Wenus",
       "nameEN": "Venus",
@@ -37,6 +40,7 @@
     },
     {
       "id": "earth",
+      "visual": "standard",
       "order": 3,
       "namePL": "Ziemia",
       "nameEN": "Earth",
@@ -49,6 +53,7 @@
     },
     {
       "id": "mars",
+      "visual": "standard",
       "order": 4,
       "namePL": "Mars",
       "nameEN": "Mars",
@@ -61,6 +66,7 @@
     },
     {
       "id": "jupiter",
+      "visual": "standard",
       "order": 5,
       "namePL": "Jowisz",
       "nameEN": "Jupiter",
@@ -73,6 +79,7 @@
     },
     {
       "id": "saturn",
+      "visual": "ringed",
       "order": 6,
       "namePL": "Saturn",
       "nameEN": "Saturn",
@@ -85,6 +92,7 @@
     },
     {
       "id": "uranus",
+      "visual": "standard",
       "order": 7,
       "namePL": "Uran",
       "nameEN": "Uranus",
@@ -97,6 +105,7 @@
     },
     {
       "id": "neptune",
+      "visual": "standard",
       "order": 8,
       "namePL": "Neptun",
       "nameEN": "Neptune",

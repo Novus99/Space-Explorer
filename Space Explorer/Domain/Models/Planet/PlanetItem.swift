@@ -7,6 +7,7 @@
 struct PlanetItem: Identifiable, Codable {
     let id: String
     let order: Int
+    let visual: String
 
     let namePL: String
     let nameEN: String

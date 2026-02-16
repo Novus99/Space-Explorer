@@ -24,6 +24,9 @@
     "Continue" : {
 
     },
+    "dummy" : {
+
+    },
     "Get random image" : {
 
     },
@@ -87,9 +90,6 @@
           }
         }
       }
-    },
-    "Planet Info View" : {
-
     },
     "Settings View" : {
 

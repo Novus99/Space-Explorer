@@ -24,12 +24,6 @@ struct SolarSystemView: View {
 private extension SolarSystemView {
     
     var goToPreviewButton: some View {
-        NavigationLink {
-            PlanetInfoView()          // << tutaj przechodzisz
-        } label: {
-            Text("Get Started")
-                .primaryButton()      // Twój styl tekstu/przycisku
-        }
-        .buttonStyle(PressableButtonStyle())  // „wciśnięcie” jak w Twoim .press
+       Text("dummy")
     }
 }
