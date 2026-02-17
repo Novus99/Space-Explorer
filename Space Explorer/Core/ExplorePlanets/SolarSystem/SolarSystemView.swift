@@ -13,7 +13,7 @@ struct SolarSystemView: View {
                 Text("Solar system view")
 
                 SolarSystemRealityView()
-                    .aspectRatio(1, contentMode: .fit) // kwadrat
+                    .aspectRatio(1, contentMode: .fit)
                     .background(.black)
                 goToPreviewButton
             }
@@ -24,6 +24,6 @@ struct SolarSystemView: View {
 private extension SolarSystemView {
     
     var goToPreviewButton: some View {
-       Text("dummy")
+       Text("Under construction...")
     }
 }

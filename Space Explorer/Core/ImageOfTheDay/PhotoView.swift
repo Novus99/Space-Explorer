@@ -14,10 +14,11 @@ struct PhotoView: View {
             resultsView
         }
         .task {
-            if viewModel.randomApod == nil {
-                await viewModel.fetchLast30Images()
-                await viewModel.fetchRandomImage()
-            }
+            if viewModel.randomApod == nil && viewModel.last30Apods.isEmpty {
+                   async let last30: Void = viewModel.fetchLast30Images()
+                   async let random: Void = viewModel.fetchRandomImage()
+                   _ = await (last30, random)
+               }
         }
     }
 }
@@ -30,9 +31,17 @@ private extension PhotoView {
                 SegmentedPickerView($viewModel.mode)
                 switch viewModel.mode {
                 case .imagesList:
-                    imagesListView
+                    if viewModel.isLoadingLast30 && viewModel.last30Apods.isEmpty {
+                            ImagesListSkeletonView()
+                        } else {
+                            imagesListView
+                        }
                 case .randomImage:
-                    randomImageView
+                    if viewModel.isLoadingRandomApod && viewModel.randomApod == nil {
+                        ImageDetailsSkeletonView()
+                    } else {
+                        randomImageView
+                    }
                 }
             }
             .padding(.horizontal)

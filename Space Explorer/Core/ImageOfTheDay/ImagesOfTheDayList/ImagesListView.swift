@@ -31,14 +31,11 @@ private extension ImagesListView {
             ForEach(Array((apod ?? []).reversed())) { item in
                 NavigationLink(destination: ImageDetailsView(apod: item)) {
                     CardView(
-                        date: item.date,
                         urlString: item.url)
                 }
                 
             }
         }
-        
-        
     }
     
     

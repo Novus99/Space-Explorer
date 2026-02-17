@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "app_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Space Explorer is an app that lets you discover the beauty and mystery of the universe. Explore the planets of our Solar System and enjoy breathtaking space imagery in a clean and immersive experience."
+          }
+        }
+      }
+    },
     "app_name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -24,7 +35,7 @@
     "Continue" : {
 
     },
-    "dummy" : {
+    "Dark Mode" : {
 
     },
     "Get random image" : {
@@ -34,6 +45,9 @@
 
     },
     "Hello, this is test view!" : {
+
+    },
+    "Link" : {
 
     },
     "photo_of_the_day.date_placeholder" : {
@@ -91,8 +105,49 @@
         }
       }
     },
-    "Settings View" : {
-
+    "settings_view_compatibility" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compatibility"
+          }
+        }
+      }
+    },
+    "settings_view_datasource" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Source:"
+          }
+        }
+      }
+    },
+    "settings_view_developer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Developer"
+          }
+        }
+      }
+    },
+    "settings_view_version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        }
+      }
     },
     "Sign Out" : {
 
@@ -140,6 +195,9 @@
 
     },
     "Title" : {
+
+    },
+    "Under construction..." : {
 
     }
   },
