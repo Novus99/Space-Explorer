@@ -74,6 +74,7 @@ To ensure a smooth user experience:
 ```
 Comming Soon
 
+```
 ---
 
 ## Future Improvements
