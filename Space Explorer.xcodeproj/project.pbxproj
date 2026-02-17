@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7743E4842F45368400B3F898 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7743E4832F45367E00B3F898 /* README.md */; };
 		77E1249C2EEAC8E4007F1E8A /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249B2EEAC8E4007F1E8A /* Factory */; };
 		77E1249E2EEAC8E4007F1E8A /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249D2EEAC8E4007F1E8A /* FactoryKit */; };
 		77E124A02EEAC8E4007F1E8A /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249F2EEAC8E4007F1E8A /* FactoryTesting */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7743E4832F45367E00B3F898 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		77E1247E2EE9EB99007F1E8A /* Space Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E125592EEC296B007F1E8A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +45,7 @@
 		77E124752EE9EB99007F1E8A = {
 			isa = PBXGroup;
 			children = (
+				7743E4832F45367E00B3F898 /* README.md */,
 				77E125592EEC296B007F1E8A /* .gitignore */,
 				77E124802EE9EB99007F1E8A /* Space Explorer */,
 				77E1247F2EE9EB99007F1E8A /* Products */,
@@ -127,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7743E4842F45368400B3F898 /* README.md in Resources */,
 				77E1255A2EEC296F007F1E8A /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
