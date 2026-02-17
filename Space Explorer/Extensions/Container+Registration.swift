@@ -9,6 +9,11 @@ import Factory
 
 extension Container {
     
+    var appInfoModel: Factory<AppInfoModel> {
+        self {
+            MainActor.assumeIsolated { AppInfoModel() } }.singleton
+        }
+    
     var dateGenerator: Factory<DateGenerator> {
         self {
             MainActor.assumeIsolated { DateGeneratorImpl() } }.singleton

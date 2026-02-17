@@ -14,10 +14,15 @@ final class PhotoViewModel: ObservableObject {
     
     @Published var mode: ImageOfTheDayMode = .imagesList
     @Published var randomApod: APODViewData?
-    @Published var last30Apods: [APODViewData]?
+    @Published var last30Apods: [APODViewData] = []
+    @Published var isLoadingLast30 = false
+    @Published var isLoadingRandomApod = false
     
     @MainActor
     func fetchRandomImage() async {
+        isLoadingRandomApod = true
+        defer { isLoadingRandomApod = false }
+        
         do {
             let item = try await apodRepository.fetchRandomAPOD()
             randomApod = mapToUIModel(item)
@@ -29,10 +34,12 @@ final class PhotoViewModel: ObservableObject {
     
     @MainActor
     func fetchLast30Images() async {
+        isLoadingLast30 = true
+        defer { isLoadingLast30 = false }
+        
         do {
             let items = try await apodRepository.fetchLast30APOD()
             last30Apods = items.map(mapToUIModel)
-            print(last30Apods!)
         }
         catch {
             print("Error while fetching last 30 astronomy image's: \(error)")
