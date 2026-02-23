@@ -12,9 +12,8 @@ struct CardView: View {
     
     var body: some View {
     cardImage
-        .cornerRadius(16)
-        .shadow(radius: 4)
-        // TODO: Tu porobić z app properties te wartości
+            .cornerRadius(Layout.Radius.medium)
+            .shadow(radius: Layout.Radius.tiny)
     }
 }
 
@@ -32,3 +31,4 @@ private extension CardView {
         CardView(urlString: "https://apod.nasa.gov/apod/image/9908/augeclipse_cagas.jpg")
     }
 }
+

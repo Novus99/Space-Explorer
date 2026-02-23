@@ -19,7 +19,7 @@ struct APODResultsView: View {
             date
         }
         .frame(maxWidth: .infinity)
-        .padding(12)
+        .padding(Layout.Padding.card)
         .background(Color(.systemGray5))
         .cornerRadius(.cell)
     }
@@ -34,7 +34,7 @@ private extension APODResultsView {
     
     
     var image: some View {
-        APODLargeImageView(urlString: apod.url) // TODO: To zmienić na string już w modelu
+        APODLargeImageView(urlString: apod.url)
     }
     
     var description: some View {

@@ -21,7 +21,7 @@ struct PlanetListView: View {
 private extension PlanetListView {
     
     var planetList: some View {
-        LazyVStack(alignment: .leading, spacing: 12) {
+        LazyVStack(alignment: .leading, spacing: Layout.Spacing.s) {
             ForEach(viewModel.planets) { planet in
                 NavigationLink(destination: PlanetDetailsView(planet: planet)) {
                     PlanetRowView(planet: planet)

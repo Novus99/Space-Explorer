@@ -46,7 +46,7 @@ private extension APODThumbnailImageView {
             }
         }
         .frame(width: size, height: size)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: Layout.Radius.medium))
         .clipped()
     }
     

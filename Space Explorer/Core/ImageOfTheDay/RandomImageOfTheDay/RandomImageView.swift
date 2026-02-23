@@ -14,7 +14,7 @@ struct RandomImageView: View {
     let onReload: () -> Void
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: Layout.Spacing.m) {
             apodResults
             getRandomImageButton
         }

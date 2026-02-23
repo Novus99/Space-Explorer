@@ -10,7 +10,6 @@
 		7743E4842F45368400B3F898 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7743E4832F45367E00B3F898 /* README.md */; };
 		77E1249C2EEAC8E4007F1E8A /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249B2EEAC8E4007F1E8A /* Factory */; };
 		77E1249E2EEAC8E4007F1E8A /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249D2EEAC8E4007F1E8A /* FactoryKit */; };
-		77E124A02EEAC8E4007F1E8A /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 77E1249F2EEAC8E4007F1E8A /* FactoryTesting */; };
 		77E1255A2EEC296F007F1E8A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 77E125592EEC296B007F1E8A /* .gitignore */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				77E1249E2EEAC8E4007F1E8A /* FactoryKit in Frameworks */,
-				77E124A02EEAC8E4007F1E8A /* FactoryTesting in Frameworks */,
 				77E1249C2EEAC8E4007F1E8A /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,7 +80,6 @@
 			packageProductDependencies = (
 				77E1249B2EEAC8E4007F1E8A /* Factory */,
 				77E1249D2EEAC8E4007F1E8A /* FactoryKit */,
-				77E1249F2EEAC8E4007F1E8A /* FactoryTesting */,
 			);
 			productName = "Space Explorer";
 			productReference = 77E1247E2EE9EB99007F1E8A /* Space Explorer.app */;
@@ -371,11 +368,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77E1249A2EEAC8E4007F1E8A /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = FactoryKit;
-		};
-		77E1249F2EEAC8E4007F1E8A /* FactoryTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 77E1249A2EEAC8E4007F1E8A /* XCRemoteSwiftPackageReference "Factory" */;
-			productName = FactoryTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

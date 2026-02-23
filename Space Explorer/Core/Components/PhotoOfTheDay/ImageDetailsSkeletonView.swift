@@ -8,39 +8,39 @@
 import SwiftUI
 
 struct ImageDetailsSkeletonView: View {
-    
-    private let spacing: CGFloat = 16
-    
+
     var body: some View {
-            detailsSkeleton
+        detailsSkeleton
     }
 }
 
-private var detailsSkeleton: some View {
-    VStack(alignment: .leading, spacing: 8) {
-        
-        RoundedRectangle(cornerRadius: 6)
-            .frame(height: 12)
-            .frame(width: 150)
-            .frame(maxWidth: .infinity, alignment: .center)
-            .skeleton()
-        
-        RoundedRectangle(cornerRadius: 12)
-            .frame(height: 150)
-            .skeleton()
+private extension ImageDetailsSkeletonView {
+    var detailsSkeleton: some View {
+        VStack(alignment: .leading, spacing: Layout.Spacing.s) {
 
-        RoundedRectangle(cornerRadius: 12)
-            .frame(height: 250)
-            .skeleton()
+            RoundedRectangle(cornerRadius: Layout.Radius.small)
+                .frame(height: 12)
+                .frame(width: 150)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .skeleton()
 
-            RoundedRectangle(cornerRadius: 6)
+            RoundedRectangle(cornerRadius: Layout.Radius.medium)
+                .frame(height: 150)
+                .skeleton()
+
+            RoundedRectangle(cornerRadius: Layout.Radius.medium)
+                .frame(height: 250)
+                .skeleton()
+
+            RoundedRectangle(cornerRadius: Layout.Radius.small)
                 .frame(height: 12)
                 .frame(width: 80)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .skeleton()
+        }
+        .padding(Layout.Spacing.m)
     }
 }
-
 
 #Preview {
     ImageDetailsSkeletonView()

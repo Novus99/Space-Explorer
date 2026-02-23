@@ -21,7 +21,7 @@ struct OrbitalInfoRow: View {
             Text(value)
                 .fontWeight(.semibold)
         }
-        .padding(.vertical, 12)
+        .padding(.vertical, Layout.Padding.card)
     }
 }
 
