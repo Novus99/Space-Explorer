@@ -12,7 +12,7 @@ public struct PlanetResultsView: View {
     let planet: PlanetViewData
     
     public var body: some View {
-        VStack(spacing: 20){
+        VStack(spacing: Layout.Spacing.m){
             planetName
             planet3DModel
             planetDescription
@@ -21,7 +21,7 @@ public struct PlanetResultsView: View {
             Spacer(minLength: 0)
         }
         .frame(maxWidth: .infinity)
-        .padding(12)
+        .padding(Layout.Padding.card)
         .background(Color(.systemGray5))
         .cornerRadius(.cell)
         

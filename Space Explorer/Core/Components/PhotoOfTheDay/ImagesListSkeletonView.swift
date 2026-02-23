@@ -10,7 +10,7 @@ import SwiftUI
 struct ImagesListSkeletonView: View {
 
     private let columnCount = 2
-    private let spacing: CGFloat = 16
+    private let spacing: CGFloat = Layout.Spacing.m
 
     var body: some View {
         LazyVGrid(
@@ -24,20 +24,11 @@ struct ImagesListSkeletonView: View {
     }
 
     private var skeletonCard: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: Layout.Spacing.m) {
 
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: Layout.Radius.medium)
                 .frame(height: 150)
                 .skeleton()
-
-//            RoundedRectangle(cornerRadius: 6)
-//                .frame(height: 14)
-//                .skeleton()
-
-//            RoundedRectangle(cornerRadius: 6)
-//                .frame(height: 12)
-//                .frame(maxWidth: 100, alignment: .leading)
-//                .skeleton()
         }
     }
 }

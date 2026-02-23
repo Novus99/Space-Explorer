@@ -16,7 +16,7 @@ struct ImageDetailsView: View {
         ScrollView {
             APODResultsView(apod: apod)
                 .padding(.horizontal)
-                .padding(.vertical, 8)
+                .padding(.vertical, Layout.Padding.card)
         }
         .toolbar { toolbarItems }
         .infinityFrame()

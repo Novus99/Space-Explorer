@@ -13,7 +13,7 @@ struct BoxView<Content: View>: View {
   @ViewBuilder let content: Content
   
   var body: some View {
-    VStack(spacing: 8) {
+      VStack(spacing: Layout.Spacing.s) {
       heading
       divider
       content

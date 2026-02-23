@@ -19,7 +19,7 @@ struct InfoBoxView: View {
       title: data.title,
       sfSymbol: data.sfSymbol ?? "")
     ) {
-      VStack(spacing: 12) {
+        VStack(spacing: Layout.Spacing.m) {
         ForEach(data.infoData) { infoData in
           row(for: infoData)
           if infoData != data.infoData.last {
@@ -41,7 +41,7 @@ private extension InfoBoxView {
           .foregroundStyle(Color.appTheme.secondaryText)
       } else if let urlString = infoData.urlString, let url = URL(string: urlString) {
         Link(destination: url) {
-          HStack(spacing: 4) {
+            HStack(spacing: Layout.Spacing.xs) {
             Image(systemName: "link")
             Text(String(localized: "Link"))
           }

@@ -22,9 +22,8 @@ struct PlanetRowView: View {
         .padding()
         .frame(maxWidth: .infinity, minHeight: 72)
         .background(Color(.systemGray5))
-        .cornerRadius(16)
-        .shadow(radius: 4)
-        // TODO: Tu porobić z app properties te wartości
+        .cornerRadius(Layout.Radius.medium)
+        .shadow(radius: Layout.Radius.tiny)
     }
 }
 

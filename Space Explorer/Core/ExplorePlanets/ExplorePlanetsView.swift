@@ -21,7 +21,7 @@ private extension ExplorePlanetsView {
     
     var resultsView: some View {
         ScrollView{
-            VStack(spacing: 16) {
+            VStack(spacing: Layout.Spacing.m) {
                 SegmentedPickerView($viewModel.mode)
                 switch viewModel.mode {
                 case .planetList:
@@ -31,7 +31,7 @@ private extension ExplorePlanetsView {
                 }
             }
             .padding(.horizontal)
-            .padding(.vertical, 8)
+            .padding(.vertical, Layout.Padding.card)
         }
         .infinityFrame()
         .background(Color.appTheme.viewBackground)

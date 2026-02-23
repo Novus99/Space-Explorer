@@ -12,7 +12,7 @@ struct SettingsView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
+            VStack(spacing: Layout.Spacing.m) {
                 introBoxView
                 customizationBoxView
                 applicationBoxView

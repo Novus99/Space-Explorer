@@ -12,7 +12,7 @@ struct OrbitalInfoCard: View {
     let rows: [(title: String, value: String)]
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: Layout.Spacing.s) {
 
             Text(header)
                 .font(.headline)
@@ -27,8 +27,8 @@ struct OrbitalInfoCard: View {
                 }
             }
         }
-        .padding(16)
+        .padding(Layout.Padding.screen)
         .background(Color(.systemGray6))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clipShape(RoundedRectangle(cornerRadius: Layout.Radius.medium))
     }
 }
